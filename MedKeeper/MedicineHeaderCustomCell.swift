@@ -30,7 +30,7 @@ class MedicineHeaderCustomCell: UITableViewCell {
         
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -38,7 +38,7 @@ class MedicineHeaderCustomCell: UITableViewCell {
 
     
     @IBAction func selectedHeader(sender: AnyObject) {
-        delegate?.didSelectUserHeaderTableViewCell(true, UserHeader: self)
+        delegate?.didSelectUserHeaderTableViewCell(Selected: true, UserHeader: self)
         
     }
 

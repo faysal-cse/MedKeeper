@@ -20,13 +20,13 @@ extension PatientProfile {
     @NSManaged var name: String?
 
     func addMedicineObject(value:Medicine) {
-        let items = self.mutableSetValueForKey("medicines")
-        items.addObject(value)
+        let items = self.mutableSetValue(forKey: "medicines")
+        items.add(value)
     }
     
     func removeMedicineObject(value:Medicine) {
-        let items = self.mutableSetValueForKey("medicines")
-        items.removeObject(value)
+        let items = self.mutableSetValue(forKey: "medicines")
+        items.remove(value)
     }
     
 }

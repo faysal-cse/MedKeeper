@@ -12,7 +12,7 @@ import CoreData
 class AddNewProfileViewController: UIViewController {
     
     @IBOutlet var newProfileTextField: UITextField!
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,9 @@ class AddNewProfileViewController: UIViewController {
         
         navigationItem.title = "Add a New Profile"
         
-        let backButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action:"cancelButtonPressed")
+        let backButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action:#selector(AddNewProfileViewController.cancelButtonPressed))
         navigationItem.leftBarButtonItem = backButton
-        let nextButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: Selector("doneButtonPressed"))
+        let nextButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(AddNewProfileViewController.doneButtonPressed))
         navigationItem.rightBarButtonItem = nextButton
 
     }
@@ -33,24 +33,24 @@ class AddNewProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func cancelButtonPressed(){
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    @objc func cancelButtonPressed(){
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func doneButtonPressed(){
+    @objc func doneButtonPressed(){
         //check that this profile name hasnt been registered before
-        let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
         var nameNotTaken:Bool = true
         do {
             let results =
-            try managedObjectContext.executeFetchRequest(fetchRequest)
-            let profileArray:NSArray = results as! [NSManagedObject]
+                try managedObjectContext.fetch(fetchRequest)
+            let profileArray:NSArray = results as! [NSManagedObject] as NSArray
             for profile in profileArray{
                 let fetchedProfile = profile as! PatientProfile
                 if(fetchedProfile.name == newProfileTextField.text){
-                    let alert = UIAlertController(title: "Profile name already taken!", message: "Please enter a different profile name.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Profile name already taken!", message: "Please enter a different profile name.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     nameNotTaken = false
                 }
             }
@@ -59,11 +59,11 @@ class AddNewProfileViewController: UIViewController {
         }
         if(nameNotTaken){
             //save patient profile
-            let newPatientProfile = NSEntityDescription.insertNewObjectForEntityForName("PatientProfile", inManagedObjectContext: self.managedObjectContext) as! PatientProfile
+            let newPatientProfile = NSEntityDescription.insertNewObject(forEntityName: "PatientProfile", into: self.managedObjectContext) as! PatientProfile
             newPatientProfile.name = newProfileTextField.text
             do{
                 try self.managedObjectContext.save()
-                self.navigationController?.popToRootViewControllerAnimated(true)
+                self.navigationController?.popToRootViewController(animated: true)
             } catch let error as NSError{
                 print(error)
             }

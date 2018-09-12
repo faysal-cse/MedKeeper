@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     @IBOutlet var medicineDetailTableView: UITableView!
     @IBOutlet var medicineImage: UIImageView!
     var fetchedCurrentMedicine : Medicine!
@@ -23,23 +23,23 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         medicineDetailTableView.delegate = self
         medicineDetailTableView.dataSource = self
     }
     
-    override func viewWillAppear(animated: Bool) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let currentMedicine:String = defaults.valueForKey("CurrentMedicine") as! String
-        let currentUser:String = defaults.valueForKey("CurrentUser") as! String
+    override func viewWillAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        let currentMedicine:String = defaults.value(forKey: "CurrentMedicine") as! String
+        let currentUser:String = defaults.value(forKey: "CurrentUser") as! String
         let predicate = NSPredicate(format: "name == %@", currentUser)
-        let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
         fetchRequest.predicate = predicate
         var fetchedCurrentUser:PatientProfile!
         do {
-            let fetchedProfiles = try managedObjectContext.executeFetchRequest(fetchRequest) as! [PatientProfile]
+            let fetchedProfiles = try managedObjectContext.fetch(fetchRequest) as! [PatientProfile]
             fetchedCurrentUser = fetchedProfiles.first
         } catch {
         }
@@ -57,7 +57,7 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
         medicineDetailTableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
     }
@@ -68,15 +68,16 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 7
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
         case 0:
             return 1
@@ -103,7 +104,7 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
         return 0
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
             return ""
@@ -125,40 +126,40 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
         return "Error"
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if(indexPath.section == 0){
             return 145
         }
         return 37
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 37
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0001
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
-            var cell: MedicineImageCustomCell! = tableView.dequeueReusableCellWithIdentifier("medicineimagecustomcell") as? MedicineImageCustomCell
+            var cell: MedicineImageCustomCell! = tableView.dequeueReusableCell(withIdentifier: "medicineimagecustomcell") as? MedicineImageCustomCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "MedicineImageCustomCell", bundle: nil), forCellReuseIdentifier: "medicineimagecustomcell")
-                cell = tableView.dequeueReusableCellWithIdentifier("medicineimagecustomcell") as? MedicineImageCustomCell
+                tableView.register(UINib(nibName: "MedicineImageCustomCell", bundle: nil), forCellReuseIdentifier: "medicineimagecustomcell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "medicineimagecustomcell") as? MedicineImageCustomCell
             }
             return cell
         }
         else if(indexPath.section == 4){
             if(fetchedCurrentMedicine.alarms.count > 0){
-                var cell: NormalAlarmCustomCell! = tableView.dequeueReusableCellWithIdentifier("normalalarmcustomcell") as? NormalAlarmCustomCell
+                var cell: NormalAlarmCustomCell! = tableView.dequeueReusableCell(withIdentifier: "normalalarmcustomcell") as? NormalAlarmCustomCell
                 if(cell == nil) {
-                    tableView.registerNib(UINib(nibName: "NormalAlarmCustomCell", bundle: nil), forCellReuseIdentifier: "normalalarmcustomcell")
-                    cell = tableView.dequeueReusableCellWithIdentifier("normalalarmcustomcell") as? NormalAlarmCustomCell
+                    tableView.register(UINib(nibName: "NormalAlarmCustomCell", bundle: nil), forCellReuseIdentifier: "normalalarmcustomcell")
+                    cell = tableView.dequeueReusableCell(withIdentifier: "normalalarmcustomcell") as? NormalAlarmCustomCell
                 }
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
-                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = DateFormatter.Style.none
+                dateFormatter.timeStyle = DateFormatter.Style.short
                 //let alarm:Alarm =  fetchedAlarms[indexPath.row] as! Alarm
                 //print(alarm.time)
                 return cell
@@ -167,27 +168,27 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         else if(indexPath.section == 5){
-            var cell: MedicineAddAlarmButtonCell! = tableView.dequeueReusableCellWithIdentifier("medicineaddalarmbuttoncell") as? MedicineAddAlarmButtonCell
+            var cell: MedicineAddAlarmButtonCell! = tableView.dequeueReusableCell(withIdentifier: "medicineaddalarmbuttoncell") as? MedicineAddAlarmButtonCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "MedicineAddAlarmButtonCell", bundle: nil), forCellReuseIdentifier: "medicineaddalarmbuttoncell")
-                cell = tableView.dequeueReusableCellWithIdentifier("medicineaddalarmbuttoncell") as? MedicineAddAlarmButtonCell
-                cell.addAlarmsButton.addTarget(self, action: Selector("addAlarmCellPressed"), forControlEvents: .TouchUpInside)
+                tableView.register(UINib(nibName: "MedicineAddAlarmButtonCell", bundle: nil), forCellReuseIdentifier: "medicineaddalarmbuttoncell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "medicineaddalarmbuttoncell") as? MedicineAddAlarmButtonCell
+                cell.addAlarmsButton.addTarget(self, action: #selector(MedicineDetailViewController.addAlarmCellPressed), for: .touchUpInside)
             }
             return cell
         }
         else if(indexPath.section == 6){
-            var cell: MedicineDeleteButtonCell! = tableView.dequeueReusableCellWithIdentifier("medicinedeletebuttoncell") as? MedicineDeleteButtonCell
+            var cell: MedicineDeleteButtonCell! = tableView.dequeueReusableCell(withIdentifier: "medicinedeletebuttoncell") as? MedicineDeleteButtonCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "MedicineDeleteButtonCell", bundle: nil), forCellReuseIdentifier: "medicinedeletebuttoncell")
-                cell = tableView.dequeueReusableCellWithIdentifier("medicinedeletebuttoncell") as? MedicineDeleteButtonCell
+                tableView.register(UINib(nibName: "MedicineDeleteButtonCell", bundle: nil), forCellReuseIdentifier: "medicinedeletebuttoncell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "medicinedeletebuttoncell") as? MedicineDeleteButtonCell
             }
-            cell.deleteButton.addTarget(self, action: Selector("deleteCurrentMedicine"), forControlEvents: .TouchUpInside)
+            cell.deleteButton.addTarget(self, action: #selector(MedicineDetailViewController.deleteCurrentMedicine), for: .touchUpInside)
             return cell
         }
-        var cell: MedicineDetailCustomCell! = tableView.dequeueReusableCellWithIdentifier("medicinedetailcustomcell") as? MedicineDetailCustomCell
+        var cell: MedicineDetailCustomCell! = tableView.dequeueReusableCell(withIdentifier: "medicinedetailcustomcell") as? MedicineDetailCustomCell
         if(cell == nil) {
-            tableView.registerNib(UINib(nibName: "MedicineDetailCustomCell", bundle: nil), forCellReuseIdentifier: "medicinedetailcustomcell")
-            cell = tableView.dequeueReusableCellWithIdentifier("medicinedetailcustomcell") as? MedicineDetailCustomCell
+            tableView.register(UINib(nibName: "MedicineDetailCustomCell", bundle: nil), forCellReuseIdentifier: "medicinedetailcustomcell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "medicinedetailcustomcell") as? MedicineDetailCustomCell
         }
         cell.textField.delegate = self
         switch indexPath.section{
@@ -209,28 +210,28 @@ class MedicineDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func addAlarmCellPressed(){
-        performSegueWithIdentifier("detailToAddAlarmSegue", sender: self)
+        performSegue(withIdentifier: "detailToAddAlarmSegue", sender: self)
     }
     
     func deleteCurrentMedicine(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let currentUser:String = defaults.valueForKey("CurrentUser") as! String
+        let defaults = UserDefaults.standard
+        let currentUser:String = defaults.value(forKey: "CurrentUser") as! String
         let predicate = NSPredicate(format: "name == %@", currentUser)
-        let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
         fetchRequest.predicate = predicate
         var fetchedCurrentUser:PatientProfile!
         do {
-            let fetchedProfiles = try managedObjectContext.executeFetchRequest(fetchRequest) as! [PatientProfile]
+            let fetchedProfiles = try managedObjectContext.fetch(fetchRequest) as! [PatientProfile]
             fetchedCurrentUser = fetchedProfiles.first
         } catch {
         }
-        fetchedCurrentUser.removeMedicineObject(fetchedCurrentMedicine)
-        managedObjectContext.deleteObject(fetchedCurrentMedicine)
+        fetchedCurrentUser.removeMedicineObject(value: fetchedCurrentMedicine)
+        managedObjectContext.delete(fetchedCurrentMedicine)
         do {
             try managedObjectContext.save()
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
-        navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

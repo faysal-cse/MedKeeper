@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Profile View Controller-->
@@ -15,19 +20,17 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-lY-YgD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jkf-lY-YgD" secondAttribute="trailing" id="JIK-Q5-G0t"/>
                             <constraint firstItem="Jkf-lY-YgD" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="YoG-5I-wJX"/>
@@ -38,7 +41,6 @@
                     <navigationItem key="navigationItem" title="Patient Profiles" id="fPy-1X-NeE">
                         <barButtonItem key="backBarButtonItem" title=" " id="ike-DZ-F3E"/>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="profilesTableView" destination="Jkf-lY-YgD" id="ZEJ-7o-eiK"/>
                         <segue destination="i9d-T0-Wy3" kind="show" identifier="addNewProfileSegue" id="w3y-Ov-eFL"/>
@@ -46,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201.5" y="-1372.5"/>
+            <point key="canvasLocation" x="1426" y="-1373"/>
         </scene>
         <!--Alarms View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -57,27 +59,24 @@
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lns-Zy-9tb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lns-Zy-9tb">
                                 <rect key="frame" x="0.0" y="1" width="375" height="602"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <color key="sectionIndexBackgroundColor" red="1" green="0.70961399430000005" blue="0.79205438660000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.70961399430000005" blue="0.79205438660000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbc-Mu-4dJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="faX-AY-6Cq"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rbc-Mu-4dJ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="7aI-Qk-9H8"/>
                             <constraint firstItem="Lns-Zy-9tb" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Bim-KW-DSG"/>
@@ -95,7 +94,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Medicines" id="xa1-2k-i3i"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="alarmsTableView" destination="Lns-Zy-9tb" id="1SM-0Z-g99"/>
                         <segue destination="2ID-9g-T0V" kind="show" identifier="addMedicineSegue" id="ba6-Af-jBp"/>
@@ -104,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201.5" y="-8.5"/>
+            <point key="canvasLocation" x="1380" y="-9"/>
         </scene>
         <!--Medicine Detail View Controller-->
         <scene sceneID="zxL-vv-LCY">
@@ -115,17 +113,15 @@
                         <viewControllerLayoutGuide type="bottom" id="qyT-3e-Mtm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YXc-vh-aj8">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="eV6-ir-iby">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.87916272095959591" green="0.87916272095959591" blue="0.87916272095959591" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.87916272095959591" green="0.87916272095959591" blue="0.87916272095959591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qyT-3e-Mtm" firstAttribute="top" secondItem="eV6-ir-iby" secondAttribute="bottom" id="4F1-xi-qAT"/>
                             <constraint firstItem="eV6-ir-iby" firstAttribute="top" secondItem="Am3-pe-yqk" secondAttribute="bottom" id="6no-Vg-WM1"/>
@@ -133,7 +129,6 @@
                             <constraint firstAttribute="trailing" secondItem="eV6-ir-iby" secondAttribute="trailing" id="fhk-Xs-ULB"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="medicineDetailTableView" destination="eV6-ir-iby" id="fy9-02-9Zt"/>
                         <segue destination="5mx-lG-8LL" kind="show" identifier="detailToAddAlarmSegue" id="gF2-tl-y0F"/>
@@ -141,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loB-ki-OxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.5" y="438.5"/>
+            <point key="canvasLocation" x="2225" y="444"/>
         </scene>
         <!--Add Medicine Name And Type View Controller-->
         <scene sceneID="HZE-ah-qtk">
@@ -152,31 +147,25 @@
                         <viewControllerLayoutGuide type="bottom" id="bZc-Pe-AMm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5f2-13-haF">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Tm-NX-ggB">
                                 <rect key="frame" x="10" y="178" width="355" height="29"/>
-                                <animations/>
                                 <segments>
                                     <segment title="Pill"/>
                                     <segment title="Liquid"/>
                                 </segments>
-                                <connections>
-                                    <action selector="segmentedControlChanged:" destination="2ID-9g-T0V" eventType="valueChanged" id="zvt-hS-Wmb"/>
-                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medication type?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jng-FQ-M85">
                                 <rect key="frame" x="10" y="132" width="355" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="txS-A4-HxV">
                                 <rect key="frame" x="10" y="77" width="355" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FtM-Sg-4e3"/>
                                 </constraints>
@@ -185,14 +174,12 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's the name of your new medication?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWC-FZ-GIG">
                                 <rect key="frame" x="10" y="30" width="355" height="22"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="txS-A4-HxV" firstAttribute="top" secondItem="FWC-FZ-GIG" secondAttribute="bottom" constant="25" id="3rS-1H-mj5"/>
                             <constraint firstItem="txS-A4-HxV" firstAttribute="leading" secondItem="5f2-13-haF" secondAttribute="leading" constant="10" id="9Cp-56-oze"/>
@@ -216,12 +203,13 @@
                     </view>
                     <connections>
                         <outlet property="medicineNameTextField" destination="txS-A4-HxV" id="jKw-DU-zwf"/>
+                        <outlet property="typeSegmentController" destination="5Tm-NX-ggB" id="8I6-Yx-yGh"/>
                         <segue destination="i1Y-EA-IR6" kind="show" identifier="segueToDosage" id="e3N-Bm-hHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO2-SX-v7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.5" y="-422.5"/>
+            <point key="canvasLocation" x="2225" y="-448"/>
         </scene>
         <!--Add Medicine Dosage View Controller-->
         <scene sceneID="O8i-tM-CoX">
@@ -232,12 +220,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cSV-89-oGc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GJk-0C-tQt">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Kg-YT-yaT">
                                 <rect key="frame" x="148" y="101" width="80" height="60"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="SdP-hw-1Oi"/>
                                     <constraint firstAttribute="height" constant="60" id="iOL-y9-gAU"/>
@@ -247,7 +234,6 @@
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUs-he-bBy">
                                 <rect key="frame" x="238" y="23" width="80" height="216"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Bov-GL-34v"/>
                                     <constraint firstAttribute="height" constant="150" id="h6J-bs-hrT"/>
@@ -261,14 +247,12 @@
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the dosage of your medication:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flq-r1-luC">
                                 <rect key="frame" x="0.0" y="30" width="375" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VUs-he-bBy" firstAttribute="width" secondItem="7Kg-YT-yaT" secondAttribute="width" id="0Ns-0L-GDh"/>
                             <constraint firstItem="VUs-he-bBy" firstAttribute="leading" secondItem="7Kg-YT-yaT" secondAttribute="trailing" constant="10" id="0SQ-vV-dW0"/>
@@ -286,7 +270,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="dosageAmount" destination="7Kg-YT-yaT" id="kbS-Au-GJK"/>
                         <outlet property="dosagePickerView" destination="VUs-he-bBy" id="EeW-aX-djK"/>
@@ -294,22 +277,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYN-CJ-aEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153.5" y="-422.5"/>
+            <point key="canvasLocation" x="2974" y="-448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b8t-To-6sf">
             <objects>
                 <navigationController storyboardIdentifier="alarmTypeVC" id="5mx-lG-8LL" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="d37-ET-Ree">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -318,7 +299,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boj-Ml-bgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2585.5" y="10.5"/>
+            <point key="canvasLocation" x="2974" y="444"/>
         </scene>
         <!--Add Alarm Type View Controller-->
         <scene sceneID="td1-h2-Eio">
@@ -329,40 +310,36 @@
                         <viewControllerLayoutGuide type="bottom" id="dfU-Xn-bc1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YDY-Nm-Ajn">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you'd like to set an alarm for your medicine, MEDICINE, choose the type of alarm that best fits your needs." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3I-ZO-1jX">
                                 <rect key="frame" x="5" y="50" width="365" height="61"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9W-9h-qfr">
                                 <rect key="frame" x="0.0" y="162" width="375" height="50"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PeS-Jc-Gu8"/>
                                 </constraints>
                                 <state key="normal" title="Normal">
-                                    <color key="titleColor" red="0.99517601730000005" green="1" blue="0.99998301270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.99517601730000005" green="1" blue="0.99998301270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="normalAlarmButtonPressed:" destination="2CJ-th-RMc" eventType="touchUpInside" id="J6R-2M-B1w"/>
-                                    <segue destination="W9H-SQ-wYA" kind="show" id="LwA-pf-Xgq"/>
+                                    <segue destination="W9H-SQ-wYA" kind="show" id="EmP-cL-yPf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Giq-lO-N7W">
                                 <rect key="frame" x="0.0" y="242" width="375" height="50"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bXR-6c-2ER"/>
                                 </constraints>
                                 <state key="normal" title="Interval">
-                                    <color key="titleColor" red="0.99517601730000005" green="1" blue="0.99998301270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.99517601730000005" green="1" blue="0.99998301270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -370,22 +347,16 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="intervalAlarmButtonPressed:" destination="2CJ-th-RMc" eventType="touchUpInside" id="91S-z8-Gb6"/>
-                                    <segue destination="mm9-1k-LLl" kind="show" id="orI-Be-vJb"/>
+                                    <segue destination="mm9-1k-LLl" kind="show" id="kOh-ln-gnL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESH-Bb-vy5">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESH-Bb-vy5">
                                 <rect key="frame" x="0.0" y="540" width="375" height="33"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="I'll add some alarms later..."/>
-                                <connections>
-                                    <action selector="addAlarmsLaterButtonsPressed:" destination="2CJ-th-RMc" eventType="touchUpInside" id="aoq-Q4-fg0"/>
-                                </connections>
                             </button>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ESH-Bb-vy5" secondAttribute="trailing" id="0RO-ev-QEV"/>
                             <constraint firstItem="ESH-Bb-vy5" firstAttribute="leading" secondItem="YDY-Nm-Ajn" secondAttribute="leading" id="3cq-zG-Cx4"/>
@@ -410,15 +381,16 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="vDf-Us-GOE"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addAlarmsLateButton" destination="ESH-Bb-vy5" id="GZK-2s-Vkh"/>
                         <outlet property="addedMedicineCompletionLabel" destination="H3I-ZO-1jX" id="9H3-KM-Vqv"/>
+                        <outlet property="intervalBtn" destination="Giq-lO-N7W" id="wKK-ve-Scq"/>
+                        <outlet property="normalBtn" destination="s9W-9h-qfr" id="Xpi-VB-NLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vc-ug-7Oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3029.5" y="10.5"/>
+            <point key="canvasLocation" x="3674" y="444"/>
         </scene>
         <!--Add Interval Alarm View Controller-->
         <scene sceneID="BX2-Rq-Oad">
@@ -429,16 +401,14 @@
                         <viewControllerLayoutGuide type="bottom" id="FKz-gT-U2p"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nHx-u5-tFx">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0j-VX-z5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3475.5" y="438.5"/>
+            <point key="canvasLocation" x="4570" y="-69"/>
         </scene>
         <!--Add Normal Alarm View Controller-->
         <scene sceneID="N6M-Kl-bd3">
@@ -449,19 +419,17 @@
                         <viewControllerLayoutGuide type="bottom" id="TVf-eV-u7g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gKG-zI-I0p">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your time(s) for consumption." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-uU-FcK">
                                 <rect key="frame" x="0.0" y="10" width="375" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJ0-2W-LZH">
                                 <rect key="frame" x="0.0" y="438" width="375" height="115"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="GZb-h2-dvy"/>
                                 </constraints>
@@ -471,41 +439,33 @@
                             </datePicker>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rw3-nb-wiY">
                                 <rect key="frame" x="0.0" y="437" width="375" height="1"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Ndi-Jt-t7t"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjG-QZ-2jl">
                                 <rect key="frame" x="0.0" y="553" width="375" height="1"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="wV3-VG-COi"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJE-Ac-D1Z">
                                 <rect key="frame" x="334" y="472" width="31" height="35"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="pYK-Pc-pdN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="addAlarmButtonPressed:" destination="W9H-SQ-wYA" eventType="touchUpInside" id="tfh-Hl-sCW"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K5Z-zM-DGO">
                                 <rect key="frame" x="0.0" y="46" width="375" height="391"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DJ0-2W-LZH" secondAttribute="trailing" id="3I0-py-h63"/>
                             <constraint firstAttribute="trailing" secondItem="gG0-uU-FcK" secondAttribute="trailing" id="5vu-qH-Omp"/>
@@ -533,15 +493,15 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addAlermBtn" destination="bJE-Ac-D1Z" id="cD2-Yr-5QN"/>
                         <outlet property="alarmTableView" destination="K5Z-zM-DGO" id="4Oj-DB-C05"/>
                         <outlet property="datePicker" destination="DJ0-2W-LZH" id="KaP-ry-Nnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vnu-Ud-1AP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3475.5" y="-301.5"/>
+            <point key="canvasLocation" x="4662" y="838"/>
         </scene>
         <!--Add New Profile View Controller-->
         <scene sceneID="k4e-Rg-ziU">
@@ -552,20 +512,18 @@
                         <viewControllerLayoutGuide type="bottom" id="AOd-AX-CSL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Zn-fg-Wjt">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a name for your new Patient Profile:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-RS-4XC">
                                 <rect key="frame" x="10" y="90" width="355" height="22"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l83-2D-oPF">
                                 <rect key="frame" x="10" y="137" width="355" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5z4-4d-GbP"/>
                                 </constraints>
@@ -573,8 +531,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3Ip-RS-4XC" secondAttribute="trailing" constant="10" id="Cnv-N5-zkY"/>
                             <constraint firstItem="3Ip-RS-4XC" firstAttribute="top" secondItem="V9J-Xm-LBS" secondAttribute="bottom" constant="90" id="YbD-em-ttV"/>
@@ -584,14 +541,13 @@
                             <constraint firstItem="3Ip-RS-4XC" firstAttribute="leading" secondItem="1Zn-fg-Wjt" secondAttribute="leading" constant="10" id="yuc-lt-WJg"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="newProfileTextField" destination="l83-2D-oPF" id="1jC-Y8-7vS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swn-mT-3yA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.5" y="-1372.5"/>
+            <point key="canvasLocation" x="2225" y="-1373"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -601,8 +557,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="NQI-01-2JX" kind="relationship" relationship="viewControllers" id="esi-Lj-UVi"/>
@@ -619,22 +574,17 @@
             <objects>
                 <navigationController id="sgb-19-9LW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Medicines" image="TabBarPill" id="jwT-xk-oKA"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Wes-HQ-dOY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1ZF-BI-wt3">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </toolbar>
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="ilC-aG-RUz"/>
@@ -651,16 +601,14 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="TabBarGear" id="Eye-vC-uHN"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbB-ih-zdB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -679,35 +627,30 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="QiC-JB-pkM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="feY-tJ-Amd" id="4aC-j4-3xz"/>
                             <outlet property="delegate" destination="feY-tJ-Amd" id="giX-WT-vjR"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="xfe-6u-jCW"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ova-C3-Qbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1201.5" y="1235.5"/>
+            <point key="canvasLocation" x="1460" y="1235"/>
         </scene>
         <!--Profiles-->
         <scene sceneID="DEy-aG-yXf">
             <objects>
                 <navigationController id="NQI-01-2JX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profiles" image="TabBarProfile" id="sRm-09-quu"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zCJ-Cz-Knz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94901960780000005" green="0.55294117649999996" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>

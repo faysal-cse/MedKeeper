@@ -16,10 +16,10 @@ class AlarmsCustomCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        alarmSwitch.transform = CGAffineTransformMakeScale(0.80, 0.80)
+        alarmSwitch.transform = CGAffineTransform(scaleX: 0.80, y: 0.80)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

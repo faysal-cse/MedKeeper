@@ -20,13 +20,13 @@ extension Medicine {
     @NSManaged var image: NSData?
     
     func addAlarmObject(value:Alarm) {
-        let items = self.mutableSetValueForKey("alarms") 
-        items.addObject(value)
+        let items = self.mutableSetValue(forKey: "alarms")
+        items.add(value)
     }
     
     func removeDeleteObject(value:Alarm) {
-        let items = self.mutableSetValueForKey("alarms")
-        items.removeObject(value)
+        let items = self.mutableSetValue(forKey: "alarms")
+        items.remove(value)
     }
 
 }

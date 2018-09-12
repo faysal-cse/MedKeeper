@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F0AEF8E1BF84EF9008B25C6 /* MedicineDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF8C1BF84EF9008B25C6 /* MedicineDetailCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF8F1BF84EF9008B25C6 /* MedicineDetailCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF8D1BF84EF9008B25C6 /* MedicineDetailCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF931BF865AD008B25C6 /* MedicineImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF911BF865AD008B25C6 /* MedicineImageCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF941BF865AD008B25C6 /* MedicineImageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF921BF865AD008B25C6 /* MedicineImageCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF971BF93966008B25C6 /* MedicineAddAlarmButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF951BF93966008B25C6 /* MedicineAddAlarmButtonCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF981BF93966008B25C6 /* MedicineAddAlarmButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF961BF93966008B25C6 /* MedicineAddAlarmButtonCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF9B1BF93A0A008B25C6 /* MedicineDeleteButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF991BF93A0A008B25C6 /* MedicineDeleteButtonCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF9C1BF93A0A008B25C6 /* MedicineDeleteButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF9A1BF93A0A008B25C6 /* MedicineDeleteButtonCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F0AEF9E1BF971C9008B25C6 /* AddNewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF9D1BF971C9008B25C6 /* AddNewProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEFA01BF993D4008B25C6 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF9F1BF993D4008B25C6 /* SettingsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEFAB1BF995F0008B25C6 /* SettingsProfileImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEFA91BF995F0008B25C6 /* SettingsProfileImageCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEFAC1BF995F0008B25C6 /* SettingsProfileImageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEFAA1BF995F0008B25C6 /* SettingsProfileImageCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F0AEFAF1BF99604008B25C6 /* SettingsProfileDeleteCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEFAD1BF99604008B25C6 /* SettingsProfileDeleteCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F0AEFB01BF99604008B25C6 /* SettingsProfileDeleteCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEFAE1BF99604008B25C6 /* SettingsProfileDeleteCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F39005A1BF05DB1006B2C04 /* AddNormalAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3900591BF05DB1006B2C04 /* AddNormalAlarmViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F39005C1BF05DC9006B2C04 /* AddIntervalAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39005B1BF05DC9006B2C04 /* AddIntervalAlarmViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F5195671C00159100F81961 /* bell_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8F5195661C00159100F81961 /* bell_ring.mp3 */; settings = {ASSET_TAGS = (); }; };
-		8F6BA6871BE8064B00ED6120 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F6BA6861BE8064B00ED6120 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		8F6BA6891BE8398400ED6120 /* AddMedicineNameAndTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6BA6881BE8398400ED6120 /* AddMedicineNameAndTypeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F6BA68B1BE83F1200ED6120 /* AddMedicineDosageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6BA68A1BE83F1200ED6120 /* AddMedicineDosageViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F81EAAF1BD962D1001C2160 /* ProfileCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EAAD1BD962D1001C2160 /* ProfileCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F81EAB01BD962D1001C2160 /* ProfileCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F81EAAE1BD962D1001C2160 /* ProfileCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F81EAB21BD9D5A3001C2160 /* ProfileDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EAB11BD9D5A3001C2160 /* ProfileDetailScreen.swift */; settings = {ASSET_TAGS = (); }; };
-		8F85D4701BF19D4B00555FD0 /* Alarm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85D46E1BF19D4B00555FD0 /* Alarm+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		8F85D4711BF19D4B00555FD0 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85D46F1BF19D4B00555FD0 /* Alarm.swift */; settings = {ASSET_TAGS = (); }; };
+		8F0AEF8E1BF84EF9008B25C6 /* MedicineDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF8C1BF84EF9008B25C6 /* MedicineDetailCustomCell.swift */; };
+		8F0AEF8F1BF84EF9008B25C6 /* MedicineDetailCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF8D1BF84EF9008B25C6 /* MedicineDetailCustomCell.xib */; };
+		8F0AEF931BF865AD008B25C6 /* MedicineImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF911BF865AD008B25C6 /* MedicineImageCustomCell.swift */; };
+		8F0AEF941BF865AD008B25C6 /* MedicineImageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF921BF865AD008B25C6 /* MedicineImageCustomCell.xib */; };
+		8F0AEF971BF93966008B25C6 /* MedicineAddAlarmButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF951BF93966008B25C6 /* MedicineAddAlarmButtonCell.swift */; };
+		8F0AEF981BF93966008B25C6 /* MedicineAddAlarmButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF961BF93966008B25C6 /* MedicineAddAlarmButtonCell.xib */; };
+		8F0AEF9B1BF93A0A008B25C6 /* MedicineDeleteButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF991BF93A0A008B25C6 /* MedicineDeleteButtonCell.swift */; };
+		8F0AEF9C1BF93A0A008B25C6 /* MedicineDeleteButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEF9A1BF93A0A008B25C6 /* MedicineDeleteButtonCell.xib */; };
+		8F0AEF9E1BF971C9008B25C6 /* AddNewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF9D1BF971C9008B25C6 /* AddNewProfileViewController.swift */; };
+		8F0AEFA01BF993D4008B25C6 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEF9F1BF993D4008B25C6 /* SettingsTableViewController.swift */; };
+		8F0AEFAB1BF995F0008B25C6 /* SettingsProfileImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEFA91BF995F0008B25C6 /* SettingsProfileImageCustomCell.swift */; };
+		8F0AEFAC1BF995F0008B25C6 /* SettingsProfileImageCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEFAA1BF995F0008B25C6 /* SettingsProfileImageCustomCell.xib */; };
+		8F0AEFAF1BF99604008B25C6 /* SettingsProfileDeleteCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AEFAD1BF99604008B25C6 /* SettingsProfileDeleteCustomCell.swift */; };
+		8F0AEFB01BF99604008B25C6 /* SettingsProfileDeleteCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F0AEFAE1BF99604008B25C6 /* SettingsProfileDeleteCustomCell.xib */; };
+		8F39005A1BF05DB1006B2C04 /* AddNormalAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3900591BF05DB1006B2C04 /* AddNormalAlarmViewController.swift */; };
+		8F39005C1BF05DC9006B2C04 /* AddIntervalAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39005B1BF05DC9006B2C04 /* AddIntervalAlarmViewController.swift */; };
+		8F5195671C00159100F81961 /* bell_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8F5195661C00159100F81961 /* bell_ring.mp3 */; };
+		8F6BA6871BE8064B00ED6120 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F6BA6861BE8064B00ED6120 /* Images.xcassets */; };
+		8F6BA6891BE8398400ED6120 /* AddMedicineNameAndTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6BA6881BE8398400ED6120 /* AddMedicineNameAndTypeViewController.swift */; };
+		8F6BA68B1BE83F1200ED6120 /* AddMedicineDosageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6BA68A1BE83F1200ED6120 /* AddMedicineDosageViewController.swift */; };
+		8F81EAAF1BD962D1001C2160 /* ProfileCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EAAD1BD962D1001C2160 /* ProfileCustomCell.swift */; };
+		8F81EAB01BD962D1001C2160 /* ProfileCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F81EAAE1BD962D1001C2160 /* ProfileCustomCell.xib */; };
+		8F81EAB21BD9D5A3001C2160 /* ProfileDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81EAB11BD9D5A3001C2160 /* ProfileDetailScreen.swift */; };
+		8F85D4701BF19D4B00555FD0 /* Alarm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85D46E1BF19D4B00555FD0 /* Alarm+CoreDataProperties.swift */; };
+		8F85D4711BF19D4B00555FD0 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85D46F1BF19D4B00555FD0 /* Alarm.swift */; };
 		8F8E473A1BC22BA30021E93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E47391BC22BA30021E93A /* AppDelegate.swift */; };
 		8F8E473C1BC22BA30021E93A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E473B1BC22BA30021E93A /* ProfileViewController.swift */; };
 		8F8E473E1BC22BA30021E93A /* AlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E473D1BC22BA30021E93A /* AlarmsViewController.swift */; };
@@ -39,21 +39,21 @@
 		8F8E47461BC22BA30021E93A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F8E47441BC22BA30021E93A /* LaunchScreen.storyboard */; };
 		8F8E47511BC22BA30021E93A /* MedKeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E47501BC22BA30021E93A /* MedKeeperTests.swift */; };
 		8F8E475C1BC22BA30021E93A /* MedKeeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E475B1BC22BA30021E93A /* MedKeeperUITests.swift */; };
-		8F9107961BD745DF001DD4C3 /* NormalAlarmCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9107941BD745DF001DD4C3 /* NormalAlarmCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9107971BD745DF001DD4C3 /* NormalAlarmCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9107951BD745DF001DD4C3 /* NormalAlarmCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F95F3B01BDF2EED00063281 /* PatientProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95F3AE1BDF2EED00063281 /* PatientProfile+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		8F95F3B11BDF2EED00063281 /* PatientProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95F3AF1BDF2EED00063281 /* PatientProfile.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DAC1BEC3BF2009DF37E /* MedicineHeaderCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAA1BEC3BF2009DF37E /* MedicineHeaderCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DAD1BEC3BF2009DF37E /* MedicineHeaderCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAB1BEC3BF2009DF37E /* MedicineHeaderCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DB01BEC3C25009DF37E /* AlarmsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAE1BEC3C25009DF37E /* AlarmsCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DB11BEC3C25009DF37E /* AlarmsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAF1BEC3C25009DF37E /* AlarmsCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DB41BEC6A4D009DF37E /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DB21BEC6A4D009DF37E /* Medicine+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DB51BEC6A4D009DF37E /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DB31BEC6A4D009DF37E /* Medicine.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DB91BEDA6FA009DF37E /* MedicineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DB81BEDA6FA009DF37E /* MedicineDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8F9C2DBB1BEEF9DD009DF37E /* AddAlarmTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DBA1BEEF9DD009DF37E /* AddAlarmTypeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8FDF4D881BDC917D00F1FA31 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF4D861BDC917D00F1FA31 /* DataModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		8FE319961BF6D9C200DFE96A /* NoAlarmsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE319941BF6D9C200DFE96A /* NoAlarmsCustomCell.swift */; settings = {ASSET_TAGS = (); }; };
-		8FE319971BF6D9C200DFE96A /* NoAlarmsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE319951BF6D9C200DFE96A /* NoAlarmsCustomCell.xib */; settings = {ASSET_TAGS = (); }; };
+		8F9107961BD745DF001DD4C3 /* NormalAlarmCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9107941BD745DF001DD4C3 /* NormalAlarmCustomCell.swift */; };
+		8F9107971BD745DF001DD4C3 /* NormalAlarmCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9107951BD745DF001DD4C3 /* NormalAlarmCustomCell.xib */; };
+		8F95F3B01BDF2EED00063281 /* PatientProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95F3AE1BDF2EED00063281 /* PatientProfile+CoreDataProperties.swift */; };
+		8F95F3B11BDF2EED00063281 /* PatientProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95F3AF1BDF2EED00063281 /* PatientProfile.swift */; };
+		8F9C2DAC1BEC3BF2009DF37E /* MedicineHeaderCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAA1BEC3BF2009DF37E /* MedicineHeaderCustomCell.swift */; };
+		8F9C2DAD1BEC3BF2009DF37E /* MedicineHeaderCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAB1BEC3BF2009DF37E /* MedicineHeaderCustomCell.xib */; };
+		8F9C2DB01BEC3C25009DF37E /* AlarmsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAE1BEC3C25009DF37E /* AlarmsCustomCell.swift */; };
+		8F9C2DB11BEC3C25009DF37E /* AlarmsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F9C2DAF1BEC3C25009DF37E /* AlarmsCustomCell.xib */; };
+		8F9C2DB41BEC6A4D009DF37E /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DB21BEC6A4D009DF37E /* Medicine+CoreDataProperties.swift */; };
+		8F9C2DB51BEC6A4D009DF37E /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DB31BEC6A4D009DF37E /* Medicine.swift */; };
+		8F9C2DB91BEDA6FA009DF37E /* MedicineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DB81BEDA6FA009DF37E /* MedicineDetailViewController.swift */; };
+		8F9C2DBB1BEEF9DD009DF37E /* AddAlarmTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9C2DBA1BEEF9DD009DF37E /* AddAlarmTypeViewController.swift */; };
+		8FDF4D881BDC917D00F1FA31 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF4D861BDC917D00F1FA31 /* DataModel.xcdatamodeld */; };
+		8FE319961BF6D9C200DFE96A /* NoAlarmsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE319941BF6D9C200DFE96A /* NoAlarmsCustomCell.swift */; };
+		8FE319971BF6D9C200DFE96A /* NoAlarmsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE319951BF6D9C200DFE96A /* NoAlarmsCustomCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +368,9 @@
 				TargetAttributes = {
 					8F8E47351BC22BA30021E93A = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 9T2AZ5PBA6;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 					};
 					8F8E474B1BC22BA30021E93A = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -614,10 +617,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9T2AZ5PBA6;
 				INFOPLIST_FILE = MedKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roundrobin.MedKeeper;
 				PRODUCT_NAME = MedKeeper;
+				PROVISIONING_PROFILE = "6f8d14e0-b655-4c86-bcfc-c863027b26f8";
+				PROVISIONING_PROFILE_SPECIFIER = CricketProjectWildCardProfile;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -625,10 +634,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9T2AZ5PBA6;
 				INFOPLIST_FILE = MedKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roundrobin.MedKeeper;
 				PRODUCT_NAME = MedKeeper;
+				PROVISIONING_PROFILE = "6f8d14e0-b655-4c86-bcfc-c863027b26f8";
+				PROVISIONING_PROFILE_SPECIFIER = CricketProjectWildCardProfile;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

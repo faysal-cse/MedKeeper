@@ -12,26 +12,26 @@ import CoreData
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet var profilesTableView: UITableView!
-    var profileArray: NSArray = [NSManagedObject]()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var profileArray: NSArray = [NSManagedObject]() as NSArray
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let addButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action:"addProfileButtonPressed:")
+        let addButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:#selector(addProfileButtonPressed))
         navigationItem.rightBarButtonItem = addButton
         
         self.profilesTableView.delegate = self
         self.profilesTableView.dataSource = self
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
         do {
-            try managedObjectContext.executeFetchRequest(fetchRequest)
-            profileArray = try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+            try managedObjectContext.fetch(fetchRequest)
+            profileArray = try managedObjectContext.fetch(fetchRequest) as! [NSManagedObject] as NSArray
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
@@ -42,39 +42,42 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profileArray.count
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return profileArray.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64;
     }
+
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            var cell: ProfileCustomCell! = tableView.dequeueReusableCellWithIdentifier("profileCustomCell") as? ProfileCustomCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: ProfileCustomCell! = tableView.dequeueReusableCell(withIdentifier: "profileCustomCell") as? ProfileCustomCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "ProfileCustomCell", bundle: nil), forCellReuseIdentifier: "profileCustomCell")
-                cell = tableView.dequeueReusableCellWithIdentifier("profileCustomCell") as? ProfileCustomCell
+                tableView.register(UINib(nibName: "ProfileCustomCell", bundle: nil), forCellReuseIdentifier: "profileCustomCell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "profileCustomCell") as? ProfileCustomCell
             }
             let patientProfile:PatientProfile = profileArray[indexPath.row] as! PatientProfile
             cell.nameLabel.text = patientProfile.name
-            cell.textLabel?.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.backgroundColor = UIColor.clear
             return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath) {
         let patientProfile:PatientProfile = profileArray[indexPath.row] as! PatientProfile
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(patientProfile.valueForKey("name"), forKey: "CurrentUser")
+        let defaults = UserDefaults.standard
+        defaults.set(patientProfile.value(forKey: "name"), forKey: "CurrentUser")
         
-        let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            profileArray = results as! [NSManagedObject]
+            let results = try managedObjectContext.fetch(fetchRequest)
+            profileArray = results as! [NSManagedObject] as NSArray
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
@@ -84,8 +87,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         //self.performSegueWithIdentifier("profileCellToDetailedProfileVC", sender: self)
     }
 
-    func addProfileButtonPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("addNewProfileSegue", sender: self)
+    @objc func addProfileButtonPressed(sender: AnyObject) {
+        self.performSegue(withIdentifier: "addNewProfileSegue", sender: self)
     }
 
 }

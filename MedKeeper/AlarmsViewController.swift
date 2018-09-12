@@ -10,67 +10,68 @@ import UIKit
 import CoreData
 
 class AlarmsViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MedicineHeaderCustomCellDelegate {
+    
 
     @IBOutlet var alarmsTableView: UITableView!
-    var medicineArray: NSArray = [NSManagedObject]()
+    var medicineArray: NSArray = [NSManagedObject]() as NSArray
     var sectionBooleanArray:[Bool] = []
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let addButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action:"addButtonPressed")
+        let addButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:#selector(AlarmsViewController.addButtonPressed))
         navigationItem.rightBarButtonItem = addButton
         
         alarmsTableView.delegate = self
         alarmsTableView.dataSource = self
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         //if first time using app, demand name for patient profile
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if (defaults.integerForKey("FirstTimeLaunchingApp") != 1){
+        let defaults = UserDefaults.standard
+        if (defaults.integer(forKey: "FirstTimeLaunchingApp") != 1){
             //initial alertView
             var tField: UITextField!
             func configurationTextField(textField: UITextField!)
             {
-                textField.returnKeyType = UIReturnKeyType.Done
+                textField.returnKeyType = UIReturnKeyType.done
                 tField = textField
                 tField.delegate = self
             }
-            let alert = UIAlertController(title: "Please Enter A Name For Your Patient Profile", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addTextFieldWithConfigurationHandler(configurationTextField)
+            let alert = UIAlertController(title: "Please Enter A Name For Your Patient Profile", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addTextField(configurationHandler: configurationTextField)
             //this action is necessary for some reason or else keyboard doesn't dismiss correctly
-            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:nil))
-            self.presentViewController(alert, animated: true, completion: {
+            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler:nil))
+            self.present(alert, animated: true, completion: {
                 print("First time alert view appeared!")
             })
         }
         else{
-            navigationItem.title = (defaults.valueForKey("CurrentUser") as! String) + "'s Medicines"
+            navigationItem.title = (defaults.value(forKey: "CurrentUser") as! String) + "'s Medicines"
             defaults.synchronize()
             //user has already launched app before and made an initial profile
         }
         alarmsTableView.reloadData()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if (defaults.integerForKey("FirstTimeLaunchingApp") == 1){
+    override func viewWillAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        if (defaults.integer(forKey: "FirstTimeLaunchingApp") == 1){
             //get current user and set the medicine array = to their medicines properties
-            let currentUser:String = defaults.valueForKey("CurrentUser") as! String
+            let currentUser:String = defaults.value(forKey: "CurrentUser") as! String
             let predicate = NSPredicate(format: "name == %@", currentUser)
-            let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
             fetchRequest.predicate = predicate
             var fetchedCurrentUser:PatientProfile!
             do {
-                let fetchedProfiles = try managedObjectContext.executeFetchRequest(fetchRequest) as! [PatientProfile]
+                let fetchedProfiles = try managedObjectContext.fetch(fetchRequest) as! [PatientProfile]
                 fetchedCurrentUser = fetchedProfiles.first
-                medicineArray = (fetchedCurrentUser.medicines.allObjects) as! [NSManagedObject]
-                medicineArray = medicineArray.sort({ $0.name.lowercaseString < $1.name.lowercaseString })
-                sectionBooleanArray = [Bool](count: medicineArray.count, repeatedValue: false)
+                medicineArray = (fetchedCurrentUser.medicines.allObjects) as! [NSManagedObject] as NSArray
+                medicineArray = medicineArray.sorted(by: { ($0 as AnyObject).name.lowercased() < ($1 as AnyObject).name.lowercased() }) as NSArray
+                sectionBooleanArray = [Bool](repeating: false, count: medicineArray.count)
             } catch {
             }
         }
@@ -80,9 +81,9 @@ class AlarmsViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         super.didReceiveMemoryWarning()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if(textField.text?.characters.count > 0){
-            saveInitialPatientProfile(textField.text!)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if(!((textField.text?.isEmpty)!)){
+            saveInitialPatientProfile(name: textField.text! as NSString)
             return true
         }
         else{
@@ -90,21 +91,21 @@ class AlarmsViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         }
     }
     
-    func addButtonPressed(){
-        performSegueWithIdentifier("addMedicineSegue", sender: self)
+    @objc func addButtonPressed(){
+        performSegue(withIdentifier: "addMedicineSegue", sender: self)
     }
     
     func saveInitialPatientProfile(name : NSString){
         //save initial patient profile if user's first time using app, set as CurrentUser
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(1, forKey: "FirstTimeLaunchingApp")
+        let defaults = UserDefaults.standard
+        defaults.set(1, forKey: "FirstTimeLaunchingApp")
         defaults.setValue(name, forKey: "CurrentUser")
         navigationItem.title = (name as String) + "'s Medicines"
         defaults.synchronize()
         
         let managedContext = AppDelegate().managedObjectContext
-        let entity =  NSEntityDescription.entityForName("PatientProfile", inManagedObjectContext: managedContext)
-        let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        let entity =  NSEntityDescription.entity(forEntityName: "PatientProfile", in: managedContext)
+        let person =  NSManagedObject(entity: entity!, insertInto: managedContext)
         person.setValue(name, forKey: "name")
         do {
             try managedContext.save()
@@ -113,11 +114,11 @@ class AlarmsViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return medicineArray.count
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let medicine : Medicine = medicineArray[section] as! Medicine
         let alarms : NSSet = medicine.alarms
         
@@ -135,41 +136,41 @@ class AlarmsViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 37
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 64
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0001
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: AlarmsCustomCell! = tableView.dequeueReusableCellWithIdentifier("alarmcustomcell") as? AlarmsCustomCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: AlarmsCustomCell! = tableView.dequeueReusableCell(withIdentifier: "alarmcustomcell") as? AlarmsCustomCell
         if(cell == nil) {
-            tableView.registerNib(UINib(nibName: "AlarmsCustomCell", bundle: nil), forCellReuseIdentifier: "alarmcustomcell")
-            cell = tableView.dequeueReusableCellWithIdentifier("alarmcustomcell") as? AlarmsCustomCell
+            tableView.register(UINib(nibName: "AlarmsCustomCell", bundle: nil), forCellReuseIdentifier: "alarmcustomcell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "alarmcustomcell") as? AlarmsCustomCell
         }
         //get medicine at indexPath and assign its alarm's properties to alarm cell
         let medicine : Medicine = medicineArray[indexPath.section] as! Medicine
-        let alarms : NSArray = medicine.alarms.allObjects
+        let alarms : NSArray = medicine.alarms.allObjects as NSArray
         if(alarms.count > 0){
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
-            dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.none//DateFormatter.StyleDateFormatter.Style.NoStyle
+            dateFormatter.timeStyle = DateFormatter.Style.short
             let alarm : Alarm = alarms[indexPath.row] as! Alarm
-            cell.alarmTime.text = String(dateFormatter.stringFromDate(alarm.time!))
+            cell.alarmTime.text = String(dateFormatter.string(from: alarm.time! as Date))
             cell.weekdays.text = alarm.weekdays
-            cell.textLabel?.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.backgroundColor = UIColor.clear
         }
         else{
-            var cell: NoAlarmsCustomCell! = tableView.dequeueReusableCellWithIdentifier("noalarmscustomcell") as? NoAlarmsCustomCell
+            var cell: NoAlarmsCustomCell! = tableView.dequeueReusableCell(withIdentifier: "noalarmscustomcell") as? NoAlarmsCustomCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "NoAlarmsCustomCell", bundle: nil), forCellReuseIdentifier: "noalarmscustomcell")
-                cell = tableView.dequeueReusableCellWithIdentifier("noalarmscustomcell") as? NoAlarmsCustomCell
+                tableView.register(UINib(nibName: "NoAlarmsCustomCell", bundle: nil), forCellReuseIdentifier: "noalarmscustomcell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "noalarmscustomcell") as? NoAlarmsCustomCell
             }
             return cell
             //cell.imageView.image = imagewithnameblahblah
@@ -178,37 +179,37 @@ class AlarmsViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var cell: MedicineHeaderCustomCell! = tableView.dequeueReusableCellWithIdentifier("headercustomcell") as? MedicineHeaderCustomCell
+        var cell: MedicineHeaderCustomCell! = tableView.dequeueReusableCell(withIdentifier: "headercustomcell") as? MedicineHeaderCustomCell
         if(cell == nil) {
-            tableView.registerNib(UINib(nibName: "MedicineHeaderCustomCell", bundle: nil), forCellReuseIdentifier: "headercustomcell")
-            cell = tableView.dequeueReusableCellWithIdentifier("headercustomcell") as? MedicineHeaderCustomCell
+            tableView.register(UINib(nibName: "MedicineHeaderCustomCell", bundle: nil), forCellReuseIdentifier: "headercustomcell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "headercustomcell") as? MedicineHeaderCustomCell
         }
         //assign medicine data object at index to medicine section cell
-        let medicine = medicineArray[section]
-        cell.medicineNameLabel.text = medicine.valueForKey("name") as? String
-        cell.dosageLabel.text = medicine.valueForKey("dosage") as? String
-        cell.medicineType = medicine.type
+        let medicine = medicineArray[section] as? NSDictionary
+        cell.medicineNameLabel.text = medicine?.value(forKey: "name") as? String//(medicine as AnyObject).value("name") as? String
+        cell.dosageLabel.text = medicine?.value(forKey: "dosage") as? String//(medicine as AnyObject).value("dosage") as? String
+        cell.medicineType = (medicine as AnyObject).type
         cell.section = section
-        if(medicine.type == "Liquid"){
+        if((medicine as AnyObject).type == "Liquid"){
             cell.medicineImage.image = UIImage(named: "liquidIcon.png")
         }
-        cell.textLabel?.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.backgroundColor = UIColor.clear
         cell.delegate = self
         return cell
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view:UIView = UIView.init(frame: CGRectMake(0, 0, alarmsTableView.frame.size.width, 50))
-        view.backgroundColor = UIColor.darkGrayColor()
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view:UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: alarmsTableView.frame.size.width, height: 50))
+        view.backgroundColor = UIColor.darkGray
         return view
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
     func didSelectUserHeaderTableViewCell(Selected: Bool, UserHeader: MedicineHeaderCustomCell) {
         //save header's medicine name as current medicine
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         defaults.setValue(UserHeader.medicineNameLabel.text, forKey: "CurrentMedicine")
         //performSegueWithIdentifier("segueToMedicineDetail", sender: self)
         

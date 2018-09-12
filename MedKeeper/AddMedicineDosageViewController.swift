@@ -11,6 +11,7 @@ import CoreData
 
 class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    
     @IBOutlet var dosagePickerView: UIPickerView!
     @IBOutlet var dosageAmount: UITextField!
     var medicineType: String = "Pill"
@@ -23,10 +24,10 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
         super.viewDidLoad()
         
         navigationItem.title = "Enter Dosage"
-        dosageAmount.keyboardType = .DecimalPad
+        dosageAmount.keyboardType = .decimalPad
         dosageAmount.becomeFirstResponder()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: Selector("doneButtonPressed"))
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(AddMedicineDosageViewController.doneButtonPressed))
         navigationItem.rightBarButtonItem = doneButton
         
         dosageAmount.delegate = self
@@ -36,7 +37,7 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if(medicineType == "Liquid"){
             currentMeasurement = "tsp"
             dosagePickerView.selectRow(1, inComponent: 0, animated: true)
@@ -48,17 +49,17 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
         // Dispose of any resources that can be recreated.
     }
 
-    func doneButtonPressed(){
+    @objc func doneButtonPressed(){
         if(dosageAmount.text == ""){
-            let alert = UIAlertController(title: "Please enter a Dosage amount.", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Please enter a Dosage amount.", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         else{
             //save medicine into coredata
             let managedContext = AppDelegate().managedObjectContext
-            let entity =  NSEntityDescription.entityForName("Medicine", inManagedObjectContext: managedContext)
-            let medicine = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+            let entity =  NSEntityDescription.entity(forEntityName: "Medicine", in: managedContext)
+            let medicine = NSManagedObject(entity: entity!, insertInto: managedContext)
             medicine.setValue(retrievedName, forKey: "name")
             medicine.setValue(medicineType, forKey: "type")
             if(dosageAmount.text == "1" && currentMeasurement == "Pills"){
@@ -68,18 +69,18 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
             medicine.setValue(dosageValue, forKey: "dosage")
             
             //save medicine to currentUser
-            let defaults = NSUserDefaults.standardUserDefaults()
-            let currentUser:String = defaults.valueForKey("CurrentUser") as! String
+            let defaults = UserDefaults.standard
+            let currentUser:String = defaults.value(forKey: "CurrentUser") as! String
             let predicate = NSPredicate(format: "name == %@", currentUser)
-            let fetchRequest = NSFetchRequest(entityName: "PatientProfile")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PatientProfile")
             fetchRequest.predicate = predicate
             var fetchedCurrentUser:PatientProfile!
             do {
-                let fetchedProfiles = try managedContext.executeFetchRequest(fetchRequest) as! [PatientProfile]
+                let fetchedProfiles = try managedContext.fetch(fetchRequest) as! [PatientProfile]
                 fetchedCurrentUser = fetchedProfiles.first
             } catch {
             }
-            fetchedCurrentUser.addMedicineObject(medicine as! Medicine)
+            fetchedCurrentUser.addMedicineObject(value: medicine as! Medicine)
             
             //save contect
             do {
@@ -92,18 +93,18 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
             defaults.setValue(retrievedName, forKey: "CurrentMedicine")
             defaults.synchronize()
 
-            navigationController?.popToRootViewControllerAnimated(true)
+            navigationController?.popToRootViewController(animated: true)
         }
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("alarmTypeVC") as! UINavigationController
-        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window!.rootViewController!.presentViewController(vc, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "alarmTypeVC") as! UINavigationController
+        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window!.rootViewController!.present(vc, animated: true, completion: nil)
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(self.medicineType == "Pill"){
             return 2
         }
@@ -112,7 +113,7 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(self.medicineType == "Pill"){
             return pillPickerViewData[row]
         }
@@ -121,7 +122,7 @@ class AddMedicineDosageViewController: UIViewController, UIPickerViewDelegate, U
         }
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         if(medicineType == "Pill"){
             currentMeasurement = pillPickerViewData[row]

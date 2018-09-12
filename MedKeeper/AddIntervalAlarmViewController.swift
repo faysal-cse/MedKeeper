@@ -14,7 +14,7 @@ class AddIntervalAlarmViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "Add Interval Alarms"
-        let backButton = UIBarButtonItem(title: "", style: .Plain, target: self, action: nil)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 

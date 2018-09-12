@@ -26,7 +26,7 @@ class ProfileDetailScreen: UIViewController {
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     /*

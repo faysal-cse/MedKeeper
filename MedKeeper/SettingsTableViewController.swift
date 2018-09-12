@@ -28,8 +28,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
     }
 
     // MARK: - Table view data source
-
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 0){
             return 145
         }
@@ -37,22 +37,22 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             return 37
         }
     }
+
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 37
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+    override func numberOfSections(in tableView: UITableView) -> Int {
+         return 3
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
             return "Patient Profile Image"
@@ -65,27 +65,27 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: SettingsProfileImageCustomCell! = tableView.dequeueReusableCellWithIdentifier("settingsprofileimagecustomcell") as? SettingsProfileImageCustomCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: SettingsProfileImageCustomCell! = tableView.dequeueReusableCell(withIdentifier: "settingsprofileimagecustomcell") as? SettingsProfileImageCustomCell
         if(cell == nil) {
-            tableView.registerNib(UINib(nibName: "SettingsProfileImageCustomCell", bundle: nil), forCellReuseIdentifier: "settingsprofileimagecustomcell")
-            cell = tableView.dequeueReusableCellWithIdentifier("settingsprofileimagecustomcell") as? SettingsProfileImageCustomCell
+            tableView.register(UINib(nibName: "SettingsProfileImageCustomCell", bundle: nil), forCellReuseIdentifier: "settingsprofileimagecustomcell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "settingsprofileimagecustomcell") as? SettingsProfileImageCustomCell
         }
         
         if(indexPath.section == 1){
-            var cell: MedicineDetailCustomCell! = tableView.dequeueReusableCellWithIdentifier("medicinedetailcustomcell") as? MedicineDetailCustomCell
+            var cell: MedicineDetailCustomCell! = tableView.dequeueReusableCell(withIdentifier: "medicinedetailcustomcell") as? MedicineDetailCustomCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "MedicineDetailCustomCell", bundle: nil), forCellReuseIdentifier: "medicinedetailcustomcell")
-                cell = tableView.dequeueReusableCellWithIdentifier("medicinedetailcustomcell") as? MedicineDetailCustomCell
+                tableView.register(UINib(nibName: "MedicineDetailCustomCell", bundle: nil), forCellReuseIdentifier: "medicinedetailcustomcell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "medicinedetailcustomcell") as? MedicineDetailCustomCell
                 cell.textField.delegate = self
             }
                 return cell
         }
         else if (indexPath.section == 2){
-            var cell: SettingsProfileDeleteCustomCell! = tableView.dequeueReusableCellWithIdentifier("settingsprofiledeletecustomcell") as? SettingsProfileDeleteCustomCell
+            var cell: SettingsProfileDeleteCustomCell! = tableView.dequeueReusableCell(withIdentifier: "settingsprofiledeletecustomcell") as? SettingsProfileDeleteCustomCell
             if(cell == nil) {
-                tableView.registerNib(UINib(nibName: "SettingsProfileDeleteCustomCell", bundle: nil), forCellReuseIdentifier: "settingsprofiledeletecustomcell")
-                cell = tableView.dequeueReusableCellWithIdentifier("settingsprofiledeletecustomcell") as? SettingsProfileDeleteCustomCell
+                tableView.register(UINib(nibName: "SettingsProfileDeleteCustomCell", bundle: nil), forCellReuseIdentifier: "settingsprofiledeletecustomcell")
+                cell = tableView.dequeueReusableCell(withIdentifier: "settingsprofiledeletecustomcell") as? SettingsProfileDeleteCustomCell
                 return cell
                 }
         }

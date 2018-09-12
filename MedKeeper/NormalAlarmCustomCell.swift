@@ -20,16 +20,16 @@ class NormalAlarmCustomCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         textLabel?.font = UIFont(name: "Avenir-Light", size: 24)
-        textLabel!.backgroundColor = UIColor.clearColor()
+        textLabel!.backgroundColor = UIColor.clear 
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
     @IBAction func deleteButtonPressed(cell: AnyObject) {
-        delegate?.deleteButtonPressed(self)
+        delegate?.deleteButtonPressed(cell: self)
     }
 }
